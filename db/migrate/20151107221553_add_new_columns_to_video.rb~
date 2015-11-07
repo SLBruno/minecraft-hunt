@@ -1,0 +1,5 @@
+class AddNewColumnsToVideo < ActiveRecord::Migration
+  def change
+	add_column :channel_title, :category_title, :view_count, :video_duration
+  end
+end
