@@ -1,55 +1,49 @@
 <p id="notice"><%= notice %></p>
 <div class="container"> 
     <div class="row">
-        <div class="col-sm-6 col-xs-12 box panel panel-default">
-            <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/mqdefault.jpg", alt: @video.title, class: 'img-rounded'),
-                      "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
-            <p><strong><h3>Title:<%= @video.title %></h3></strong></p>
+        <div class="col-sm-6 col-xs-12 box panel panel-default" id="showimage">
+            <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/maxresdefault.jpg", alt: @video.title, class: 'imgg'), 
+            "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
         </div>        
 
-        <div class="col-sm-5 col-sm-offset-1 col-xs-12 box panel panel-default">
-                <p>Likes:<%= @video.likes %>
-                <p>Dislikes<%= @video.dislikes %></p>
-                <p>Views:<%= @video.views %></p> 
-                <p>Channel: <%= @video.channel %></p> 
-                <p><%= link_to like_video_path(@video), method: :put, class: "btn btn-default btn-sm" do %>
-                    <span class="glyphicon glyphicon-chevron-up"></span>
-                    Gostei
-                    <%= @video.get_upvotes.size %>
+        <div class="col-sm-6 col-xs-12 box panel panel-default" id="showinfo">
+                <p><strong><h3><%= @video.title %></h3></strong></p>
+                <p>por:<%= @video.channel %> </p>
+                    <p><%= link_to like_video_path(@video), method: :put, class: "btn upvote" do %>
+                    <span class="glyphicon glyphicon-menu-up"></span><%= @video.get_upvotes.size %>
                     <% end %></p>
-                <p><%= link_to dislike_video_path(@video), method: :put, class: "btn btn-default btn-sm" do %>
-                    <span class="glyphicon glyphicon-chevron-up"></span>
-                    Não Gostei
-                    <%= @video.get_downvotes.size %>
-                    <% end %>
-                <p><% if @video.published_at %>
-                    Published at <%= @video.published_at.strftime('%-d %B %Y %H:%M:%S') %>
-                    <% end %></p>
+            <hr>
+            <div class="showdescription"><%= @video.description.first(300) %></div>
+            
+            <div class="row"> 
+            <div class="showstats">
+                    <h4 class="col-md-4 statsinfo">Views
+                        <p><%= @video.views %></p></h4>
+                    <h4 class="col-md-4 statsinfo">Likes
+                        <p><%= @video.likes %></ṕ></h4>
+                    <h4 class="col-md-4 statsinfo">Dislikes
+                        <p><%= @video.dislikes %></p></p>
+                </div>
+            </div>
+               
         </div>
     </div>
-    <div class="row">
-<<<<<<< 500198eef32f1224f8b3dce9ad663d1b6f5eda97
+    <div class="row" id="comments">
+        <div class="panel box panel-default" id="comments2">
+            <div class="container">
+                <p class="comments_title">
+                    <%= @video.comments.count %> Comentários
+                </p>
+                        <%= render :partial => @video.comments %></div>
+                        DEIXE SEU COMENTÁRIO!! <%= simple_form_for [@video, Comment.new]  do |f| %>
+                        <div class="field">
+                        <%= f.text_area :body, class: "form-control" %>
+                        </div>   
+            <%= f.submit "Enviar Comentário", class: "btn btn-primary btn-sm" %>
+            <% end %>    
+        </div>
         <%= link_to 'Editar', edit_video_path(@video) %> |
         <%= link_to 'Voltar', videos_path %>
     </div>
-</div>
-=======
-        <h3 class="comments_title">
-            <%= @video.comments.count %> Comentários
-        </h3>
-        <div id="comments">
-        <%= render :partial => @video.comments %>
-        </div>
-        <%= simple_form_for [@video, Comment.new]  do |f| %>
-        <div class="field">
-        <%= f.text_area :body, class: "form-control" %>
-        </div>
-        <br>
-        <%= f.submit "Add Comment", class: "btn btn-primary" %>
-        
-        <%= link_to 'Editar', edit_video_path(@video) %> |
-        <%= link_to 'Voltar', videos_path %>
-        <% end %>
     </div>
 </div>
->>>>>>> v0.3 - comentários adicionados

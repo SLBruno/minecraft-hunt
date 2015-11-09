@@ -1,7 +1,6 @@
 class CreateComments < ActiveRecord::Migration
   
     def change
-    drop_table :comments
     create_table :comments do |t|
       t.integer :video_id
       t.text :body

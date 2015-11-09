@@ -19,3 +19,216 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap/theme';
+
+/*HEAD AND NAVBAR CODES
+*/
+.navbar-inner{ 
+background-color: #2db2eb !important; 
+border: none; 
+ box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.navbar-brand a{
+    color: #ffffff !important; 
+    font-size: 30px;
+    font-weight:bolder; 
+}
+
+
+body {
+    background-color:#c3c3c3;
+    
+    
+}
+
+.yt_video { 
+padding: 0
+      
+}
+
+.imgg {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    background-color:red;
+    border-radius: 0px; 
+}
+
+.imgindex {
+    display: block;
+    max-width: 100%;
+    max-height: 100%; 
+    width: 390px;
+    height: auto;
+    border-radius: 0px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.2s ease-in-out;
+}
+
+.box { 
+padding: 0px;
+border: none;
+margin: 0; 
+}
+
+#showimage {
+    border-radius:0px; 
+    height: 328.8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#showinfo {
+display: block; 
+height: 328.8px;
+border:none; 
+border-radius: 0px;
+padding: 0 5px 0 5px;
+box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+.btn-primary { 
+border: none; 
+border-radius: 0px;
+}
+
+.showstats { 
+display: inline;
+background-color: lightgray;
+text-align: center;
+} 
+
+.showstatsindex { 
+display: inline;
+background-color: lightgray;
+text-align: center;
+margin-top: -10px; 
+} 
+
+.upvote { 
+border-radius: 50%;
+width: 75px;
+height: 75px;
+text-align: center;
+vertical-align: center;
+position:relative;
+float:right;
+margin-top: -50px;
+margin-right: 20px;
+background-color: dodgerblue;
+font-size: 25px;
+color: white; 
+padding:17px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.upvoteindex { 
+border-radius: 50%;
+width: 75px;
+height: 75px;
+text-align: center;
+vertical-align: center;
+position:relative;
+float:right;
+margin-top: -85px;
+margin-right: 10px;
+background-color: dodgerblue;
+font-size: 25px;
+color: white; 
+padding:20px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#comments {
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.statsinfo {
+    list-style-type: none;
+    border: 5px 0 0 0 dodgerblue;
+    color: dimgrey;
+    font-size: 25px; 
+    
+    p { font-size: 15px;
+        color:black; 
+    }
+}
+
+.statsinfoindex {
+    list-style-type: none;
+    color: #2db2eb;
+    font-size: 15px;
+    font-weight: 800;
+    margin:-10px 0 -20px 0; 
+    
+    p { font-size: 10px;
+        color:black;
+        font-weight: 500; 
+        text-align: center; 
+    }
+}
+
+.showdescription {
+    margin-bottom: 25px;
+    margin-top: 25px; 
+}
+
+#comments { 
+    margin-top: 20px;
+}
+
+#comments2 {
+    padding: 20px; 
+}
+
+.comments_title {
+    font-size: 20px;
+    color: dodgerblue;
+    margin-top: 0px; 
+}
+
+.form-control {
+    margin: 30px 0 30px 0; 
+}
+
+.comments_wrapper { 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.2s ease-in-out;
+  margin: 20px;
+  padding: 20px; 
+
+}
+
+.lead {
+    font-size: 20px;
+    color: dimgrey; 
+}
+
+.caption {
+    padding:0 10px 0 10px;  
+}
+
+.titleindex { 
+    color: #2db2eb !important; 
+    text-align: center;
+    font-weight: 700; 
+}
+
+.panelindex {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border:none;
+  border-radius: 0px; 
+}
+
+.hrindex {
+    margin: none; 
+}
+
+.navbarfont a{
+    color:white !important; 
+    border:none;
+    font-weight: 700;
+    box-sizing:none; 
+}

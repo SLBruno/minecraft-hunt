@@ -7,30 +7,29 @@
         <% group.each do |video| %>
           <% if video %>
             <div class="col-md-4">
-              <div class="yt_video thumbnail">
-                <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
-                                      class: 'img-rounded'),
-                            "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+              <div class="panel panel-default panelindex">
+                  <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
+    class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
+                  <p><%= link_to like_video_path(video), method: :put, class: "btn upvoteindex" do %>
+                    <span class="glyphicon glyphicon-menu-up"></span><%= video.get_upvotes.size %>
+                    <% end %></p>
                 <div class="caption">
-                    <h5><%= link_to video.title, video %></h5>
-                  <% if video.published_at %>
-                    <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
-                  <% end %>
-                  <p>
-                      Likes:<%= video.likes %>
-                      Dislikes<%= video.dislikes %>
-                      Views:<%= video.views %>
-                      Channel: <%= video.channel %>
-                      <%= link_to like_video_path(video), method: :put, class: "btn btn-default btn-sm" do %>
-                        <span class="glyphicon glyphicon-chevron-up"></span>
-                        Gostei
-                      <%= video.get_upvotes.size %>
-                      <% end %>
-                      <%= link_to dislike_video_path(video), method: :put, class: "btn btn-default btn-sm" do %>
-                        <span class="glyphicon glyphicon-chevron-up"></span>
-                        Não Gostei
-                      <%= video.get_downvotes.size %>
-                      <% end %>
+                    <h4 class="titleindex"><%= link_to video.title, video %></h4>
+                    <hr class="hrindex">
+                    <div class="row">
+                        <div class="showstatsindex">
+                            <h4 class="col-md-4 statsinfoindex">Views
+                            <p><%= video.views %></p></h4>
+                            <h4 class="col-md-4 statsinfoindex">Likes
+                            <p><%= video.likes %></ṕ></h4>
+                            <h4 class="col-md-4 statsinfoindex">Dislikes
+                            <p><%= video.dislikes %></p></p>
+                </div>
+            </div>
+                  <hr>
+                <% if video.published_at %>
+                <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+                <% end %>
                   </p>
                 </div>
               </div>

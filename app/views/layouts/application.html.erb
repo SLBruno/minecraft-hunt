@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Raddit</title>
+  <title>YTHUNT</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,13 +10,13 @@
 	<header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div class="container">
-          <div id="logo" class="navbar-brand"><%= link_to "MinecraftHunt", root_path %></div>
+          <div id="logo" class="navbar-brand"><%= link_to "YTHUNT", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
-                            <li><%= link_to 'Submit Video', new_video_path %></li>
-							<li><%= link_to 'Account', edit_user_registration_path %></li>
-							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+                            <li class="navbarfont"><%= link_to 'Enviar Video', new_video_path %></li>
+							<li class="navbarfont"><%= link_to 'Minha Conta', edit_user_registration_path %></li>
+                            <li class="navbarfont"><%= link_to 'Deslogar', destroy_user_session_path, :method => :delete %></li>
 						</ul>
 					<% else -%>
 						<ul class="nav navbar-nav pull-right">
