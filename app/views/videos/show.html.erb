@@ -28,7 +28,28 @@
         </div>
     </div>
     <div class="row">
+<<<<<<< 500198eef32f1224f8b3dce9ad663d1b6f5eda97
         <%= link_to 'Editar', edit_video_path(@video) %> |
         <%= link_to 'Voltar', videos_path %>
     </div>
 </div>
+=======
+        <h3 class="comments_title">
+            <%= @video.comments.count %> Comentários
+        </h3>
+        <div id="comments">
+        <%= render :partial => @video.comments %>
+        </div>
+        <%= simple_form_for [@video, Comment.new]  do |f| %>
+        <div class="field">
+        <%= f.text_area :body, class: "form-control" %>
+        </div>
+        <br>
+        <%= f.submit "Add Comment", class: "btn btn-primary" %>
+        
+        <%= link_to 'Editar', edit_video_path(@video) %> |
+        <%= link_to 'Voltar', videos_path %>
+        <% end %>
+    </div>
+</div>
+>>>>>>> v0.3 - comentários adicionados

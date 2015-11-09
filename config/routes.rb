@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
     devise_for :users
+    resources :comments
     resources :links
     resources :videos, only: [:index, :new, :create, :edit, :show] do
+<<<<<<< 500198eef32f1224f8b3dce9ad663d1b6f5eda97
+=======
+        resources :comments
+>>>>>>> v0.3 - comentários adicionados
         member do
             put "like", to: "videos#upvote"
             put "dislike", to: "videos#downvote"

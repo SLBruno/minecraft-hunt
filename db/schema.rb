@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107222330) do
+ActiveRecord::Schema.define(version: 20151109152841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "c_omments", force: true do |t|
+    t.integer  "video_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "c_omments", ["user_id"], name: "index_c_omments_on_user_id", using: :btree
+  add_index "c_omments", ["video_id"], name: "index_c_omments_on_video_id", using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "video_id"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+  add_index "comments", ["video_id"], name: "index_comments_on_video_id", using: :btree
 
   create_table "links", force: true do |t|
     t.string   "title"
