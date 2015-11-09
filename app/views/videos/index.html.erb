@@ -1,13 +1,3 @@
-<div class="jumbotron">
-  <div class="container">
-    <h1>Procurando por Vídeos de Minecraft?</h1>
-    <p>Envie seu vídeo de Minecraft ou descubra diversos novos vídeos todos os dias!</p>
-    <p>
-        <%= link_to 'Envie seu Vídeo!', new_video_path, class: 'btn btn-primary btn-lg' %>
-    </p>
-  </div>
-</div>
-
 <% if @videos.any? %>
   <div class="container">
     <h1>Últimos Vídeos</h1>
@@ -31,6 +21,16 @@
                       Dislikes<%= video.dislikes %>
                       Views:<%= video.views %>
                       Channel: <%= video.channel %>
+                      <%= link_to like_video_path(video), method: :put, class: "btn btn-default btn-sm" do %>
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                        Gostei
+                      <%= video.get_upvotes.size %>
+                      <% end %>
+                      <%= link_to dislike_video_path(video), method: :put, class: "btn btn-default btn-sm" do %>
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                        Não Gostei
+                      <%= video.get_downvotes.size %>
+                      <% end %>
                   </p>
                 </div>
               </div>

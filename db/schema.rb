@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20151107222330) do
     t.string   "link"
     t.string   "title"
     t.datetime "published_at"
-    t.integer  "likes",                 default: 0, 
-    t.integer  "dislikes"               default: 0, 
+    t.integer  "likes"
+    t.integer  "dislikes"
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,20 +1,34 @@
 <p id="notice"><%= notice %></p>
 <div class="container"> 
-<div class="row">
-<div class="col-sm-6 col-xs-12 box panel panel-default">
-<%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/mqdefault.jpg", alt: @video.title, class: 'img-rounded'),
+    <div class="row">
+        <div class="col-sm-6 col-xs-12 box panel panel-default">
+            <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/mqdefault.jpg", alt: @video.title, class: 'img-rounded'),
                       "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
-<p><strong><h3>Title:<%= @video.title %></h3></strong>
-</div>
-</p>
+            <p><strong><h3>Title:<%= @video.title %></h3></strong></p>
+        </div>        
 
-<div class="col-sm-5 col-sm-offset-1 col-xs-12 box panel panel-default">
-<p><strong> Visualizações: </strong>
-    <%= @video.views %></p>
-</div>
-</div>
-<div class="row">
-<%= link_to 'Editar', edit_video_path(@video) %> |
-<%= link_to 'Voltar', videos_path %>
-</div>
+        <div class="col-sm-5 col-sm-offset-1 col-xs-12 box panel panel-default">
+                <p>Likes:<%= @video.likes %>
+                <p>Dislikes<%= @video.dislikes %></p>
+                <p>Views:<%= @video.views %></p> 
+                <p>Channel: <%= @video.channel %></p> 
+                <p><%= link_to like_video_path(@video), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    Gostei
+                    <%= @video.get_upvotes.size %>
+                    <% end %></p>
+                <p><%= link_to dislike_video_path(@video), method: :put, class: "btn btn-default btn-sm" do %>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    Não Gostei
+                    <%= @video.get_downvotes.size %>
+                    <% end %>
+                <p><% if @video.published_at %>
+                    Published at <%= @video.published_at.strftime('%-d %B %Y %H:%M:%S') %>
+                    <% end %></p>
+        </div>
+    </div>
+    <div class="row">
+        <%= link_to 'Editar', edit_video_path(@video) %> |
+        <%= link_to 'Voltar', videos_path %>
+    </div>
 </div>

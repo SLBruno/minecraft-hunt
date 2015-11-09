@@ -25,6 +25,18 @@ class VideosController < ApplicationController
   end
     
 end
+    
+    def upvote
+        @video = Video.find(params[:id])
+        @video.upvote_by (current_user)
+        redirect_to :back
+    end
+    
+    def downvote
+        @video = Video.find(params[:id])
+        @video.downvote_by (current_user)
+        redirect_to :back
+    end
 
 private
     def video_params
@@ -34,5 +46,7 @@ private
     def set_video
         @video = Video.find(params[:id])
     end
+    
+
     
 end
