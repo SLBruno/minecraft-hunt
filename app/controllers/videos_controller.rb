@@ -1,4 +1,5 @@
 class VideosController < ApplicationController
+    before_action :set_video, only: [:show, :edit, :update, :destroy]
   
   def index
     @videos = Video.order('created_at DESC')
@@ -18,14 +19,20 @@ class VideosController < ApplicationController
   end
 
   def edit
-      render :edit
+  end
+
+  def show
   end
     
 end
 
 private
-def video_params
+    def video_params
     params.require(:video).permit(:link)
-end
+    end
+    
+    def set_video
+        @video = Video.find(params[:id])
+    end
     
 end

@@ -1,16 +1,16 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>Share your videos with the world!</h1>
-    <p>Click the button below to share your video from YouTube.</p>
+    <h1>Procurando por Vídeos de Minecraft?</h1>
+    <p>Envie seu vídeo de Minecraft ou descubra diversos novos vídeos todos os dias!</p>
     <p>
-      <%= link_to 'Add video now!', new_video_path, class: 'btn btn-primary btn-lg' %>
+        <%= link_to 'Envie seu Vídeo!', new_video_path, class: 'btn btn-primary btn-lg' %>
     </p>
   </div>
 </div>
 
 <% if @videos.any? %>
   <div class="container">
-    <h1>Latest videos</h1>
+    <h1>Últimos Vídeos</h1>
     <div id="player-wrapper"></div>
     <% @videos.in_groups_of(3) do |group| %>
       <div class="row">
@@ -22,7 +22,7 @@
                                       class: 'img-rounded'),
                             "https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
                 <div class="caption">
-                  <h5><%= video.title %></h5>
+                    <h5><%= link_to video.title, video %></h5>
                   <% if video.published_at %>
                     <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
                   <% end %>
