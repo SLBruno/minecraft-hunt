@@ -5,6 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :video_id
       t.text :body
       t.references :user, index: true
+
       t.timestamps
     end
     add_index :comments, :video_id
