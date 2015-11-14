@@ -1,8 +1,10 @@
 class VideosController < ApplicationController
     before_action :set_video, only: [:show, :edit, :update, :destroy]
   
+    
+# act_as_votable - https://github.com/ryanto/acts_as_votable    
   def index
-    @videos = Video.order('created_at DESC')
+      @videos = Video.order(:cached_votes_score => :desc)
   end
 
   def new

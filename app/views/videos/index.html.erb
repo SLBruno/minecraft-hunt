@@ -2,11 +2,11 @@
   <div class="container">
     <h1>Últimos Vídeos</h1>
     <div id="player-wrapper"></div>
-    <% @videos.in_groups_of(3) do |group| %>
+    <% @videos.in_groups_of(4) do |group| %>
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="panel panel-default panelindex">
                   <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
     class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
