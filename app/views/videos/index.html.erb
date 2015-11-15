@@ -1,6 +1,10 @@
 <% if @videos.any? %>
   <div class="container">
-    <h1>Últimos Vídeos</h1>
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a href="#">Últimos Vídeos</a></li>
+        <li role="presentation"><%= link_to 'Melhores do Mês', videos_path(:created_at => 3.days.ago) %></li>
+        <li role="presentation"><%= link_to 'Mais Recentes', maisrecentes_path %></li>
+        </ul>
     <div id="player-wrapper"></div>
     <% @videos.in_groups_of(4) do |group| %>
       <div class="row">

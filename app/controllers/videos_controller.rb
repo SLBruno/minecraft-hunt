@@ -1,12 +1,19 @@
 class VideosController < ApplicationController
-    before_action :set_video, only: [:show, :edit, :update, :destroy]
+    before_action :set_video, only: [:show, :edit, :update, :destroy,]
   
     
 # act_as_votable - https://github.com/ryanto/acts_as_votable    
   def index
+      if params[:created_at]
+      @videos = Video.order(:cached_votes_score => :desc).where(:created_at => params[:created_at]..Time.now)
+      flash[:notice] = "There are <b>#{@videos.count}</b> in this category".html_safe
+      else
       @videos = Video.order(:cached_votes_score => :desc)
-  end
+      flash[:notice] = "There are <b>#{@videos.count}</b> in this category".html_safe
+    end
+  end  
 
+        
   def new
     @video = Video.new
   end

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     end
     
     root 'videos#index'
+    
+    get '/videosmensal', to: 'videos#index', as: 'videosmensal'
+    get '/maisrecentes', to: 'videos#index', as: 'maisrecentes'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
