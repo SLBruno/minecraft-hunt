@@ -6,10 +6,8 @@ class VideosController < ApplicationController
   def index
       if params[:created_at]
       @videos = Video.order(:cached_votes_score => :desc).where(:created_at => params[:created_at]..Time.now)
-      flash[:notice] = "There are <b>#{@videos.count}</b> in this category".html_safe
       else
-      @videos = Video.order(:cached_votes_score => :desc)
-      flash[:notice] = "There are <b>#{@videos.count}</b> in this category".html_safe
+      @videos = Video.order(:created_at => :desc)
     end
   end  
 

@@ -1,20 +1,17 @@
-<p id="notice"><%= notice %></p>
-<div class="container"> 
-    <div class="row">
-        <div class="col-sm-6 col-xs-12 box panel panel-default" id="showimage">
+<p id="notice"><%= notice %></p>           
+        <div class="container">
+        <div class="col-sm-6 col-xs-12" id="showimage">
             <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/maxresdefault.jpg", alt: @video.title, class: 'imgg'), 
             "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
-        </div>        
-
-        <div class="col-sm-6 col-xs-12 box panel panel-default" id="showinfo">
+        </div> 
+        <div class="col-sm-12 col-xs-12 box panel panel-default" id="showinfo">
                 <p><strong><h3><%= @video.title %></h3></strong></p>
-                <p>por:<%= @video.channel %> </p>
+                <p><b>por: </b><%= @video.channel %></p>
                     <p><%= link_to like_video_path(@video), method: :put, class: "btn upvote" do %>
-                    <span class="glyphicon glyphicon-menu-up"></span><%= @video.get_upvotes.size %>
+                    <span class="glyphicon glyphicon-triangle-top"></span><%= @video.get_upvotes.size %>
                     <% end %></p>
             <hr>
             <div class="showdescription"><%= @video.description.first(300) %></div>
-            
             <div class="row"> 
             <div class="showstats">
                     <h4 class="col-md-4 statsinfo">Views
@@ -24,8 +21,7 @@
                     <h4 class="col-md-4 statsinfo">Dislikes
                         <p><%= @video.dislikes %></p></p>
                 </div>
-            </div>
-               
+            </div>      
         </div>
     </div>
     <div class="row" id="comments">

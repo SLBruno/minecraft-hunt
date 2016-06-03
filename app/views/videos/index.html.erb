@@ -1,9 +1,27 @@
+<div class="container">
+  <div class="jumbotron" style="height:320px; ">
+    <h2>CONHEÇA NOVAS INFOS SOBRE MINECRAFT!</h2>
+    <div class="col-md-4">
+      <h3>ENVIE UM VÍDEO</h3>
+      <p>envie vídeos de minecraft para que outros conheçam o seu youtuber favorito!</p>
+  </div>
+    <div class="col-md-4">
+      <h3>VOTE NOS MELHORES!</h3>
+      <p>vote nos vídeos que você mais gosta e crie listas.</p>
+    </div>
+    <div class="col-md-4">
+      <h3>DESCUBRA NOVOS YOUTUBERS!</h3>
+      <p>conheça novos vídeos de minecraft</p>
+    </div>
+  </div>
+</div>
 <% if @videos.any? %>
   <div class="container">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><a href="#">Últimos Vídeos</a></li>
-        <li role="presentation"><%= link_to 'Melhores do Mês', videos_path(:created_at => 3.days.ago) %></li>
-        <li role="presentation"><%= link_to 'Mais Recentes', maisrecentes_path %></li>
+        <li role="presentation" class="active"><%= link_to 'Últimos Vídeos', videos_path %></li>
+        <li role="presentation"><%= link_to 'Melhores da Semana', videos_path(:created_at => 30.days.ago) %></li>
+        <li role="presentation"><%= link_to 'Melhores do Mês', videos_path(:created_at => 7.days.ago) %></li>
+        <li role="presentation"><%= link_to 'Melhores de Todos os Tempos', videos_path(:created_at => 9000.days.ago) %></li>
         </ul>
     <div id="player-wrapper"></div>
     <% @videos.in_groups_of(4) do |group| %>

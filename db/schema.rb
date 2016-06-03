@@ -16,17 +16,6 @@ ActiveRecord::Schema.define(version: 20151114112756) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "c_omments", force: true do |t|
-    t.integer  "video_id"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "c_omments", ["user_id"], name: "index_c_omments_on_user_id", using: :btree
-  add_index "c_omments", ["video_id"], name: "index_c_omments_on_video_id", using: :btree
-
   create_table "comments", force: true do |t|
     t.integer  "video_id"
     t.text     "body"
@@ -78,7 +67,6 @@ ActiveRecord::Schema.define(version: 20151114112756) do
     t.string   "category"
     t.string   "duration"
     t.text     "description"
-    t.integer  "upvote"
     t.integer  "cached_votes_total", default: 0
     t.integer  "cached_votes_score", default: 0
     t.integer  "cached_votes_up",    default: 0
