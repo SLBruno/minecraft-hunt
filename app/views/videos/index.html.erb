@@ -50,7 +50,8 @@
             </div>
                   <hr>
                 <% if video.published_at %>
-                <p>Published at <%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+                <p><b>Publicado:</b><%= video.published_at.strftime('%-d %B %Y %H:%M:%S') %></p>
+                <p><b>por: </b><%= video.channel %></p>
                 <% end %>
                   </p>
                 </div>
