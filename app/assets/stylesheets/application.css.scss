@@ -47,14 +47,22 @@ nav-tabs > li {
 
 
 /* INDEX */
+
+
 body {
-    background-color:#677280;
+      height: 100%;
+      background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      font-family: 'Lato', sans-serif;
+} 
  
 .col-md-3 {
     padding: 5px;
     }  
     
-}
 
 .yt_video { 
 padding: 0
@@ -122,9 +130,9 @@ margin-top: -10px;
 } 
 
 .upvote { 
-border-radius: 50%;
+border-radius: 0%;
 width: 75px;
-height: 75px;
+height: 40px;
 text-align: center;
 vertical-align: center;
 position:relative;
@@ -139,19 +147,20 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .upvoteindex { 
-border-radius: 50%;
+border-radius: 0%;
 width: 75px;
-height: 75px;
+height: 40px;
 text-align: center;
 vertical-align: center;
 position:relative;
 float:right;
-margin-top: -85px;
-margin-right: 10px;
-background-color: dodgerblue;
+margin-top: -40px;
+margin-right: 0px;
+background-color: black;
+opacity: 0.7; 
 font-size: 25px;
 color: white; 
-padding:20px;
+padding:5px;
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
