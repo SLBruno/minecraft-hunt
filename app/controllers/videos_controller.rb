@@ -19,8 +19,19 @@ class VideosController < ApplicationController
   def create
   @video = Video.new(video_params)
   if @video.save
-    flash[:success] = 'Video added!'
+    if @video.title.include?("Minecraft") or 
+      @video.title.include?("MINECRAFT") or
+      @video.title.include?("minecraft") or
+      @video.description.include?("Minecraft") or
+      @video.description.include?("MINECRAFT") or
+      @video.description.include?("minecraft")
+    flash[:success] = 'Video adicionado - ele contem minecraft !'
     redirect_to root_url
+  else
+    flash[:success] = 'O vídeo não contem Minecraft em seu título ou descrição!'
+    @video.destroy
+    render :new
+  end 
   else
     render :new
   end
@@ -46,6 +57,7 @@ end
     end
 
 private
+
     def video_params
     params.require(:video).permit(:link)
     end
@@ -53,7 +65,5 @@ private
     def set_video
         @video = Video.find(params[:id])
     end
-    
-
-    
+        
 end
