@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="jumbotron" style="height:320px; ">
-    <h2><b>CONHEÇA NOVAS INFOS SOBRE MINECRAFT!<b></h2>
-    <div class="col-md-4">
-      <h3>ENVIE UM VÍDEO</h3>
-      <p>envie vídeos de minecraft para que outros conheçam o seu youtuber favorito!</p>
+  <div class="jumbotron" style="height:auto; ">
+      <div class="container">
+      <h2><b>CONHEÇA NOVAS INFOS SOBRE MINECRAFT!<b></h2>
+      <div class="col-md-4 col-xs-12">
+        <h3>ENVIE UM VÍDEO</h3>
+        <p>envie vídeos de minecraft para que outros conheçam o seu youtuber favorito!</p>
+    </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>VOTE NOS MELHORES!</h3>
+        <p>vote nos vídeos que você mais gosta e crie listas.</p>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <h3>DESCUBRA NOVOS YOUTUBERS!</h3>
+        <p>conheça novos vídeos de minecraft</p>
+      </div>
   </div>
-    <div class="col-md-4">
-      <h3>VOTE NOS MELHORES!</h3>
-      <p>vote nos vídeos que você mais gosta e crie listas.</p>
-    </div>
-    <div class="col-md-4">
-      <h3>DESCUBRA NOVOS YOUTUBERS!</h3>
-      <p>conheça novos vídeos de minecraft</p>
-    </div>
   </div>
 </div>
 <% if @videos.any? %>
@@ -28,7 +30,7 @@
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
-            <div class="col-md-3">
+            <div class="col-md-3 col-xs-6">
               <div class="panel panel-default panelindex">
                   <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
     class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
@@ -40,11 +42,11 @@
                     <hr class="hrindex">
                     <div class="row">
                         <div class="showstatsindex">
-                            <h4 class="col-md-4 statsinfoindex">Views
+                            <h4 class="col-md-4 col-xs-4 statsinfoindex">Views
                             <p><%= video.views %></p></h4>
-                            <h4 class="col-md-4 statsinfoindex">Likes
+                            <h4 class="col-md-4 col-xs-4 statsinfoindex">Likes
                             <p><%= video.likes %></ṕ></h4>
-                            <h4 class="col-md-4 statsinfoindex">Dislikes
+                            <h4 class="col-md-4 col-xs-4 statsinfoindex">Dislikes
                             <p><%= video.dislikes %></p></p>
                 </div>
             </div>
