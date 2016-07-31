@@ -96,14 +96,10 @@ padding: 0
     margin: 0; 
 }
 
-#showimage {
-    border-radius:0px;
-    width: 1170px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
 
 #showinfo {
-    display: block; 
+    display: block;
+    height: 100%; 
     border:none; 
     border-radius: 0px;
     padding: 0 5px 0 5px;
@@ -128,23 +124,6 @@ background-color: lightgray;
 text-align: center;
 margin-top: -10px; 
 } 
-
-.upvote { 
-border-radius: 0%;
-width: 75px;
-height: 40px;
-text-align: center;
-vertical-align: center;
-position:relative;
-float:right;
-margin-top: -50px;
-margin-right: 20px;
-background-color: dodgerblue;
-font-size: 25px;
-color: white; 
-padding:17px;
-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
 
 .upvoteindex { 
 border-radius: 0%;
@@ -254,4 +233,28 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     border:none;
     font-weight: 700;
     box-sizing:none; 
+}
+
+/* SHOW # */
+
+.row2 { 
+    height: 368px;
+     
+}
+
+
+.imgyt { 
+    height: 368px;
+    width: auto;
+    overflow:hidden;
+    }
+
+
+
+
+#showimage {
+    border-radius: 0px;
+    height: auto; 
+    padding: 0px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
