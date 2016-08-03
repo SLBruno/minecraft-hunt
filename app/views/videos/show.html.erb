@@ -6,7 +6,7 @@
     </div><!--showimage--> 
     <div class="col-sm-5 col-xs-12 box panel panel-default" id="showinfo">
         <p><strong><h3><%= @video.title %></h3></strong></p>
-        <p><b>por: </b><%= @video.channel %></p>
+        <p><b>por: </b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
         <p><%= link_to like_video_path(@video), method: :put, class: "btn upvoteindex" do %>
         + <%= @video.get_upvotes.size %>
         <% end %></p>
@@ -17,7 +17,7 @@
                 <h4 class="col-md-4 statsinfo">Views
                 <p><%= @video.views %></p></h4>
                 <h4 class="col-md-4 statsinfo">Likes
-                <p><%= @video.likes %></ṕ></h4>
+                <p><%= @video.likes %></p></h4>
                 <h4 class="col-md-4 statsinfo">Dislikes
                 <p><%= @video.dislikes %></p></p>
             </div>
