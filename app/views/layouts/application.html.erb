@@ -15,13 +15,14 @@
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
                             <li class="navbarfont"><%= link_to 'Enviar Video', new_video_path %></li>
-							<li class="navbarfont"><%= link_to 'Minha Conta', edit_user_registration_path %></li>
+							<li class="navbarfont"><%= link_to 'Configurações', edit_user_registration_path %></li>
+							<li class="navbarfont"><%= link_to 'Meu Perfil', users_show_path %></li>
                             <li class="navbarfont"><%= link_to 'Deslogar', destroy_user_session_path, :method => :delete %></li>
 						</ul>
 					<% else -%>
 						<ul class="nav navbar-nav pull-right">
-							<li><%= link_to 'Sign up', new_user_registration_path %></li>
-							<li><%= link_to 'Sign in', new_user_session_path %></li>
+							<li><%= link_to 'Criar Conta', new_user_registration_path %></li>
+							<li><%= link_to 'Fazer Login', new_user_session_path %></li>
 						</ul>
 					<% end -%>
         </nav>

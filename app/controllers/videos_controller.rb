@@ -18,6 +18,7 @@ class VideosController < ApplicationController
     
   def create
   @video = Video.new(video_params)
+  @video.user = current_user
   if @video.save
     if @video.title.include?("Minecraft") or 
       @video.title.include?("MINECRAFT") or
@@ -59,7 +60,7 @@ end
 private
 
     def video_params
-    params.require(:video).permit(:link) 
+    params.require(:video).permit(:link, :user_id) 
     end
     
     def set_video

@@ -8,6 +8,7 @@ class VideoObserver < ActiveRecord::Observer
     resource.dislikes = video.dislike_count
     resource.published_at = video.published_at
     resource.channel = video.channel_title
+    resource.channelid = video.channel_id
     resource.category = video.category_title
     resource.views = video.view_count
     resource.duration = video.duration
