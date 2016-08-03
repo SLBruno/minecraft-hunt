@@ -3,7 +3,7 @@
     <div class="col-sm-7 col-xs-12" id="showimage">
                 <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/maxresdefault.jpg", alt: @video.title, class: 'imgyt'), 
                 "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
-    </div> 
+    </div><!--showimage--> 
     <div class="col-sm-5 col-xs-12 box panel panel-default" id="showinfo">
         <p><strong><h3><%= @video.title %></h3></strong></p>
         <p><b>por: </b><%= @video.channel %></p>
@@ -24,22 +24,37 @@
         </div>      
     </div>
 </div>
-    <div class="row2" id="comments">
-        <div class="panel box panel-default" id="comments2">
-            <div class="container">
-                <p class="comments_title">
-                    <%= @video.comments.count %> Comentários
-                </p>
-                        <%= render :partial => @video.comments %></div>
-                        DEIXE SEU COMENTÁRIO!! <%= simple_form_for [@video, Comment.new]  do |f| %>
-                        <div class="field">
-                        <%= f.text_area :body, class: "form-control" %>
-                        </div>   
-            <%= f.submit "Enviar Comentário", class: "btn btn-primary btn-sm" %>
-            <% end %>    
-        </div>
+<br>
+    <div class="row">
+        <div class="col-md-8 col-xs-12">
+            <div class="panel box panel-default" id="comments2">
+                <div class="container">
+                    <p class="comments_title">
+                        <%= @video.comments.count %> Comentários
+                    </p>
+                    <%= render :partial => @video.comments %>
+                </div><!--container-->
+            </div><!--panel-->
+        </div><!--col-->
+        <div class="col-md-4 col-xs-12">
+            <div class="panel box panel-default" id="comments3">
+                <div class="container">
+                    <h3>DEIXE SEU COMENTÁRIO!!</h3> <%= simple_form_for [@video, Comment.new]  do |f| %>
+                    <div class="field">
+                    <%= f.text_area :body, class:"clearfix" %>
+                    </div>   
+                    <%= f.submit "Enviar Comentário", class: "btn btn-primary btn-lg" %>
+                    <% end %>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div><!--container-->
+            </div><!--panel-->
+        </div><!--col-->
+    </div><!--row-->
+        <br>
         <%= link_to 'Editar', edit_video_path(@video) %> |
         <%= link_to 'Voltar', videos_path %>
-    </div>
-    </div> 
+    </div><!--comments2-->
 </div>

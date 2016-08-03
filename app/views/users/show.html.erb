@@ -1,30 +1,53 @@
 <h1><%= @user.email %></h1>
 
+<div class="row">
+	<div class= "col-md-6 col-xs-12">
+		<div class="panel panel-default">
+		<div class="panel-heading"> Comentários Realizados </div>
+			<div class="panel-body">
+			<% @comments = Comment.all.joins(:video).where(user_id: current_user.id) %>
+				<% @comments.each do |comment| %>
+					<p><b>Vídeo:</b> <%= link_to comment.video.title, comment %></p>
+					<p><b>Comentário:</b> <%= comment.body %></p>
+					<p><small>Enviado <strong> <%= time_ago_in_words(comment.created_at) %> </strong> por <%= comment.user.email %></small></p>
+					<br>
+					
+			<% end %> 
 
-<div class= "col-md-6">
-	<div class="panel panel-default">
-	<div class="panel-heading"> Comentários Realizados </div>
-		<div class="panel-body">
-		<% @comments = Comment.all.joins(:video).where(user_id: current_user.id) %>
-			<% @comments.each do |comment| %>
-				<p><%= comment.video.title %></p>
-				<p><%= comment.body %></p>
-				<p><%= comment.user.email %></p>
-		<% end %> 
+			</div><!--panel-body-->
+		</div><!--panel panel-default-->
+	</div><!--col-md-6-->
 
-		</div><!--panel-body-->
-	</div><!--panel panel-default-->
-</div><!--col-md-6-->
+	<div class= "col-md-6 col-xs-12">
+		<div class="panel panel-default">
+		<div class="panel-heading"> Vídeos Enviados </div>
+			<div class="panel-body">
+			<% videos = Video.where(user_id: current_user.id) %>
+				<% videos.each do |video| %>
+					<p><%= link_to video.title, video %></p>
+			<% end %> 
 
-<div class= "col-md-6">
-	<div class="panel panel-default">
-	<div class="panel-heading"> Vídeos Enviados </div>
-		<div class="panel-body">
-		<% videos = Video.where(user_id: current_user.id) %>
-			<% videos.each do |video| %>
-				<p><%= video.title %></p>
-		<% end %> 
+			</div><!--panel-body-->
+		</div><!--panel panel-default-->
+	</div><!--col-md-6-->
+</div><!--row-->
+<div class="row">
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Videos Upvotes </div><!--panel-heading-->
+			<div class="panel-body">
 
-		</div><!--panel-body-->
-	</div><!--panel panel-default-->
-</div><!--col-md-6>
+			</div><!--panel-body-->
+		</div><!--panel panel-default-->
+	</div><!--col-md-6-->
+
+	<div class="col-md-6">
+		<div class="panel panel-default">
+			<div class="panel-heading"> Videos Downvotes </div><!--panel-heading-->
+			<div class="panel-body">
+
+			</div><!--panel-body-->
+		</div><!--panel panel-default-->
+	</div><!--col-md-6-->
+</div><!--row-->
+
