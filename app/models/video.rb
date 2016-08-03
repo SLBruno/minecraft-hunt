@@ -5,6 +5,5 @@ class Video < ActiveRecord::Base
     YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
 
   
-  validates :link, presence: true, format: YT_LINK_FORMAT
-  validates_uniqueness_of :link, scope: :uid
+  validates :link, presence: true, uniqueness: true, format: YT_LINK_FORMAT
 end
