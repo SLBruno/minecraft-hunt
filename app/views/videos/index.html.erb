@@ -20,7 +20,7 @@
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
-            <div class="col-md-3 col-xs-12">
+            <div class="col-md-3 col-sm-6 col-xs-12">
               <div class="panel panel-default panelindex">
                   <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
     class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
