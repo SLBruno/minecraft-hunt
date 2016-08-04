@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-    before_action :set_video, only: [:show, :edit, :update, :destroy,]
+    before_action :set_video, only: [:show, :edit, :update, :destroy]
   
     
 # act_as_votable - https://github.com/ryanto/acts_as_votable    
@@ -26,7 +26,7 @@ class VideosController < ApplicationController
       @video.description.include?("Minecraft") or
       @video.description.include?("MINECRAFT") or
       @video.description.include?("minecraft")
-    flash[:success] = 'Video adicionado - ele contem minecraft !'
+    flash[:success] = 'Video adicionado - ele contem minecraft!'
     redirect_to root_url
   else
     flash[:success] = 'O vídeo não contem Minecraft em seu título ou descrição!'

@@ -1,20 +1,10 @@
 <div class="container">
-  <div class="jumbotron" style="height:auto; ">
-      <div class="container">
-      <h2><b>CONHEÇA NOVAS INFOS SOBRE MINECRAFT!<b></h2>
-      <div class="col-md-4 col-xs-12">
-        <h3>ENVIE UM VÍDEO</h3>
-        <p>envie vídeos de minecraft para que outros conheçam o seu youtuber favorito!</p>
-    </div>
-      <div class="col-md-4 col-xs-12">
-        <h3>VOTE NOS MELHORES!</h3>
-        <p>vote nos vídeos que você mais gosta e crie listas.</p>
-      </div>
-      <div class="col-md-4 col-xs-12">
-        <h3>DESCUBRA NOVOS YOUTUBERS!</h3>
-        <p>conheça novos vídeos de minecraft</p>
-      </div>
-  </div>
+  <% if current_user.present? %>
+  <%= render :partial => "videos/form" %>
+  <% else %>
+  <%= render :partial => "shared/apresentacao" %>
+  <% end %>
+  
   </div>
 </div>
 <% if @videos.any? %>
