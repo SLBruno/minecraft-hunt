@@ -19,25 +19,36 @@
 @import "bootstrap";
 @import 'bootstrap/theme';
 
-/*HEAD AND NAVBAR CODES */
+/*HEADER AND NAVBAR CODES */
+
 .navbar-default {
-    background-color: #2E3138;
-    border-color: #2E3138;
+    border:none;
+    color: white;
+
+}
+
+.navbar-default a{
+    color: #ffffff; 
+    font-size: 1em;
+    font-weight:bolder; 
 }
 
 .navbar-inner{ 
-background-color: #2E3138 !important; 
+background-color: #00aeef; 
 border:none;
 margin: none;
-box-sizing:inherit;
-box-shadow: 0 2px 4px rgba(0,0,0,0.16), 0 2px 4px rgba(0,0,0,0.23);
+color: white;
+    
 }
 
-.navbar-brand a{
-    color: #ffffff !important; 
-    font-size: 30px;
-    font-weight:bolder; 
+.navbar-default .navbar-nav > .open > a {
+    color: white !important;
 }
+
+.navbar-default .navbar-nav > li > a {
+    color: white !important;
+}
+
 
 nav-tabs > li {
     float: left;
@@ -48,18 +59,34 @@ nav-tabs > li {
     border-radius: 50px;
 }
 
+a.titlemine {
+    font-size: 2em;
+    font-weight:200;
+    text-decoration: none;
+}
+
+a.titlerank {
+    font-size: 2em;
+    font-weight:900;
+    text-decoration: none;
+
+}
+
+/* INDEX JUMBOTRON */
+
+
 
 /* INDEX */
-
 
 body {
       height: 100%;
       font-size: 1.5em;
-      background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-      background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-      background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-      background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
-      background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+      background-size: cover;
+      background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%) fixed;
+      background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%) fixed;
+      background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%) fixed;
+      background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%) fixed;
+      background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%) fixed;
       font-family: 'Lato', sans-serif;
 
     h2  {
@@ -76,7 +103,14 @@ body {
     } 
 } 
 
+.fullintro {
+    height: 100vh;
+    margin-bottom: 50px;
+}
 
+img.indexjumbotronimg {
+    align-content: center;
+}
 
 .col-md-3 {
     padding: 5px;

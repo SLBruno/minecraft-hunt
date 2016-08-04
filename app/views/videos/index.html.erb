@@ -1,12 +1,13 @@
-<div class="container">
+  <div class="container">
+  <div class="jumbotron">
   <% if current_user.present? %>
   <%= render :partial => "videos/form" %>
   <% else %>
   <%= render :partial => "shared/apresentacao" %>
   <% end %>
-  
   </div>
-</div>
+  </div>
+
 <% if @videos.any? %>
   <div class="container">
     <ul class="nav nav-tabs">
