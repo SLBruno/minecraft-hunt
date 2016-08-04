@@ -1,17 +1,16 @@
-<div class="jumbotron">
-	<div class="container">
+	<div class="container" id="linkintro">
+		
 		  <h1>Envie um Novo Vídeo !</h1>
+		  <div class="col-md-8 col-md-offset-2">
 		  <% @video = Video.new %>
 		  <%= form_for @video do |f| %>
 		    <%= render 'shared/errors', object: @video %>
 	
 		    <div class="form-group">
-		      <%= f.label :link %>
-		      <%= f.text_field :link, class: 'form-control', required: true %>
-		      <span class="help-block"> Regras: o link tem de ser para o youtube, não pode ser duplicado e é claro, tem de ter minecraft no título ou na descrição!</span>
+		      <%= f.text_field :link, required: true %><%= f.submit "Enviar Link", class: 'btn-laranja' %>
+		      
 		    </div>
-	
-		    <%= f.submit "Enviar Link", class: 'btn btn-primary' %>
 		  <% end %>
+		  </div>
+
 		</div>
-</div><!--jumbotron-->

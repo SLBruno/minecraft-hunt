@@ -39,14 +39,33 @@
       </div><!--container-->
     </div><!--navbar-inner-->
   </header>
-	<div class="container">
+	<%= yield %>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!--<div class="container">
 		<% flash.each do |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
 		<% end %>
 			<div id="content" class="col-md-12 center-block">
 				<%= yield %>
-			</div><!--content-->
-		</div><!--main_content-->
+			</div>
+		</div>
 	</div>
 </body>
-</html>
+</html>-->
