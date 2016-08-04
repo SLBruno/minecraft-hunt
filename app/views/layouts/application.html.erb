@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	<header class="navbar navbar-default" role="navigation">
@@ -39,33 +39,10 @@
       </div><!--container-->
     </div><!--navbar-inner-->
   </header>
+  	<div class="container" id="alertas"><% flash.each do |name, msg| %> <%= content_tag(:div, msg, class: "alert alert-info") %> 
+  	<% end %></div>
 	<%= yield %>
-	</div>
+	</body>
+	</body>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!--<div class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-			<div id="content" class="col-md-12 center-block">
-				<%= yield %>
-			</div>
-		</div>
-	</div>
-</body>
-</html>-->
+</html>

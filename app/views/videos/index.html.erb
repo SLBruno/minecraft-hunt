@@ -9,36 +9,40 @@
 </div>
 
 <div id="content" class="col-md-12 center-block">
-<% if @videos.any? %>
-  <div class="container">
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active"><%= link_to 'Últimos Vídeos', videos_path %></li>
-        <li role="presentation"><%= link_to 'Melhores da Semana', videos_path(:created_at => 30.days.ago) %></li>
-        <li role="presentation"><%= link_to 'Melhores do Mês', videos_path(:created_at => 7.days.ago) %></li>
-        <li role="presentation"><%= link_to 'Melhores de Todos os Tempos', videos_path(:created_at => 9000.days.ago) %></li>
-        </ul>
-    <div id="player-wrapper"></div>
+  <div class="container"> 
+    <ul class="nav nav-tabs col-md-offset-2">
+        <li role="presentation"> <%= link_to 'Últimos Vídeos', videos_path %></li>
+        <li role="presentation"> <%= link_to 'Melhores da Semana', videos_path(:created_at => 30.days.ago) %></li>
+        <li role="presentation"> <%= link_to 'Melhores do Mês', videos_path(:created_at => 7.days.ago) %></li>
+        <li role="presentation"> <%= link_to 'Melhores de Todos os Tempos', videos_path(:created_at => 9000.days.ago) %></li>
+        </ul><!--nav-tabs-->
     <% @videos.in_groups_of(4) do |group| %>
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
-            <div class="col-md-3 col-xs-6">
+            <div class="col-md-3 col-xs-12">
               <div class="panel panel-default panelindex">
                   <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
     class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
                 <div class="caption">
-                    <h4 class="titleindex"><%= link_to video.title, video %></h4>
-                    <p><%= link_to like_video_path(video), method: :put, class: "btn upvoteindex" do %>
-                    + <%= video.get_upvotes.size %>
-                    <% end %></p>
-                  </p>
-                </div>
-              </div>
-            </div>
+                    <h4 class="titleindex"><%= link_to video.title.first(60), video %>...</h4>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-8">
+                        <p class="channelpanelindex">por: <%= video.channel %></p>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                    <%= link_to like_video_path(video), method: :put, class: "upvoteindex" do %>
+                    <p><%= image_tag("up-arrow.svg", size: "25", class: "upvoteimage") %></p>
+                    <p class="upvotenumber"><%= video.get_upvotes.size %></p>
+                    <% end %><!--funçãodoupvote--></p>
+                    </div><!--upvoteindex-->
+                    </div><!--row-->           
+                </div><!--caption-->
+              </div><!--panelindex-->
+            </div><!--coluna-do-panel-->
           <% end %>
         <% end %>
-      </div>
+      </div><!--row-->
     <% end %>
-  </div>
-<% end %> 
-</div>
+  </div><!--container--> 
+</div><!--content-->

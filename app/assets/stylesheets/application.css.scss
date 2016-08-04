@@ -82,6 +82,8 @@ a.titlerank {
 .subheader {
     background-color: #00aeef;
     color: white;
+    padding-top:150px;
+    margin-top: -150px;
 }
 
 p.indexjumbotronimg {
@@ -122,14 +124,27 @@ img.indexjumbotronimg {
     height: 35px;
 }
 
+input#video_link {
+    color: black;
+}
 
 input.btn-laranja {
     background-color: #EB932D;
     width: 25%;
     font-size: 1.3em;
-    font-weight: 400;
+    font-weight: 800;
 
 }
+
+
+
+/* NAVEGAÇÃO DO INDEX */
+.nav-tabs {
+    display: block;
+    self-align: center;
+    margin-bottom: 20px; 
+}
+
 
 /* INDEX */
 
@@ -224,22 +239,37 @@ height: auto;
 } 
 
 .upvoteindex { 
-border-radius: 0%;
-width: 75px;
-height: 40px;
-text-align: center;
-vertical-align: center;
-position:relative;
-float:right;
-margin-top: 0px;
-margin-right: 0px;
-opacity: 0.7; 
-font-size: 25px; 
-padding:3px;
+    font-size: 1.5em;
+    margin-top:-10px;
+
+}
+
+img.upvoteimage {
+    display:block;
+    margin: 0 auto;
+}
+
+p.upvotenumber {
+    text-align: center;
+    margin: none;
+    margin-top: -5px;
+
 }
 
 #comments {
 box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.channelpanelindex {
+    min-height: 72px;
+    
+}
+
+p.channelpanelindex {
+    font-weight: 300;
+    font-size: 1.2em;
+    vertical-align: middle;
+
 }
 
 .statsinfo {
@@ -309,6 +339,11 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     padding:0 10px 0 10px;  
 }
 
+.titleindex {
+    min-height: 60px;
+    margin-bottom:0px;
+}
+
 .titleindex a { 
     text-align: left;
     font-weight: 700;
@@ -325,7 +360,8 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   border:none;
   border-radius: 3px;
   padding-bottom: 5px;
-  height: 280px;
+  height: 100%;
+  min-height: 300px;
 }
 
 
@@ -340,7 +376,7 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     box-sizing:none; 
 }
 
-/* SHOW # */
+/* SHOW #VIDEO */
 
 .row2 { 
     height: 368px;
@@ -354,12 +390,22 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     overflow:hidden;
     }
 
-
-
-
 #showimage {
     border-radius: 0px;
     height: auto; 
     padding: 0px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+/* ALERTAS */
+    
+    #alertas {
+        z-index: 2;
+        margin-top:20px;
+        background-color: #232323;
+        border: none;
+        font-size: 1.5em;
+    }
+
+    .alert.alert-info {
+    }
