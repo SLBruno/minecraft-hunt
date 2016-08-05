@@ -1,33 +1,48 @@
-<p id="notice"><%= notice %></p>
-<div class="row2">           
-    <div class="col-sm-7 col-xs-12" id="showimage">
-                <%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/maxresdefault.jpg", alt: @video.title, class: 'imgyt'), 
-                "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %>
-    </div><!--showimage--> 
-    <div class="col-sm-5 col-xs-12 box panel panel-default" id="showinfo">
-        <p><strong><h3><%= @video.title %></h3></strong></p>
-        <p><b>por: </b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
-        <p><%= link_to like_video_path(@video), method: :put, class: "btn upvoteindex" do %>
-        + <%= @video.get_upvotes.size %>
-        <% end %></p>
-        <hr>
-        <div class="showdescription"><%= @video.description.first(300) %></div>
-        <div class="row"> 
-            <div class="showstats">
-                <h4 class="col-md-4 statsinfo">Views
+<div id="content" class="col-md-12 center-block">
+  <div class="container">
+    <div class="row">  
+        <div class="col-sm-7 col-xs-12">
+            <div class="panel panel-index"> 
+                <p><%= link_to image_tag("https://img.youtube.com/vi/#{@video.uid}/maxresdefault.jpg", alt: @video.title, class: 'imgyt'), 
+                "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %></p>
+                <div class="panelshow">        
+            <p><strong><h3><%= link_to @video.title, "https://www.youtube.com/watch?v=#{@video.uid}", style: "color:black;" %></h3></strong></p>
+            <p style="font-weight:300; font-size:1.2em;"><b>por: </b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
+            <hr>
+            <div class="showdescription"><%= @video.description.first(700) %></div>
+            <div class="align-right">
+            <button class="btn btn-warning votebtn" style="text-align:right"> ASSISTIR </button>
+            </div><!--align-right-->
+        </div><!--panelshow-->
+    </div><!--panel-index-->
+</div><!--primeira-coluna-->
+
+        <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showinfo">
+            <div class="panel panel-index showupvotepanel">
+                <h3 style="color:white; font-weight:300; margin-top:-8px;"> Quantas pessoas gostaram deste video?</h3>
+                <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
+                <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
+                <button class="btn btn-warning votebtn"> VOTAR </button>
+                <% end %>
+            </div><!--panel-index-votar-agora-->
+            <br>
+            <div class="panel showstats">
+            <h2> INFORMAÇÕES </h2>
+                <h4>Views
                 <p><%= @video.views %></p></h4>
-                <h4 class="col-md-4 statsinfo">Likes
+                <br>
+                <h4>Likes
                 <p><%= @video.likes %></p></h4>
-                <h4 class="col-md-4 statsinfo">Dislikes
+                <br>
+                <h4>Dislikes </h4>
                 <p><%= @video.dislikes %></p></p>
-            </div>
-        </div>      
-    </div>
-</div>
-<br>
+            </div><!--panel-index-votar-agora-->
+        </div><!--segunda-coluna-->
+    </div><!--row-->
+
     <div class="row">
-        <div class="col-md-8 col-xs-12">
-            <div class="panel box panel-default" id="comments2">
+        <div class="col-md-7 col-xs-12">
+            <div class="panel" id="comments2">
                 <div class="container">
                     <p class="comments_title">
                         <%= @video.comments.count %> Comentários
@@ -36,9 +51,8 @@
                 </div><!--container-->
             </div><!--panel-->
         </div><!--col-->
-        <div class="col-md-4 col-xs-12">
-            <div class="panel box panel-default" id="comments3">
-                <div class="container">
+        <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showaddcomment">
+            <div class="panel box panel-default paneladdcomment">
                     <h3>DEIXE SEU COMENTÁRIO!!</h3> <%= simple_form_for [@video, Comment.new]  do |f| %>
                     <div class="field">
                     <%= f.text_area :body, class:"clearfix" %>
@@ -57,4 +71,6 @@
         <%= link_to 'Editar', edit_video_path(@video) %> |
         <%= link_to 'Voltar', videos_path %>
     </div><!--comments2-->
-</div>
+        </div>
+    </div><!--container-->
+</div><!--content-->
