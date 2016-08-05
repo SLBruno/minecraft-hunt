@@ -60,7 +60,7 @@ end
 private
 
     def video_params
-    params.require(:video).permit(:link, :user_id) 
+    params.require(:video).permit(:link, :users_id) 
     end
     
     def set_video
