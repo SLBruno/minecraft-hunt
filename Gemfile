@@ -43,6 +43,8 @@ gem 'simple_form'
 
 gem 'bootstrap-material-design'
 
+gem 'bootstrap_form', '~> 2.4'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
