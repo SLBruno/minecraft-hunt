@@ -12,7 +12,6 @@
     <div class="navbar-inner">
       <div class="container">
           <div id="logo" class="navbar-brand"><%= link_to "Mine", root_path, class: "titlemine" %> <%= link_to "RANK", root_path, class:"titlerank" %></div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav">
 							<li class="dropdown">
@@ -27,7 +26,7 @@
 	        				</li>
 	        			</ul>
 						<ul class="nav navbar-nav pull-right">
-                            <li><%= link_to 'Enviar Video', new_video_path %></li>
+                            <li><%= link_to '  Enviar Video', new_video_path, class: "submitvideo" %></li> 
 						</ul>
 					<% else -%>
 						<ul class="nav navbar-nav pull-right">
@@ -35,7 +34,6 @@
 							<li><%= link_to 'Fazer Login', new_user_session_path %></li>
 						</ul>
 					<% end -%>
-        </nav>
       </div><!--container-->
     </div><!--navbar-inner-->
   </header>

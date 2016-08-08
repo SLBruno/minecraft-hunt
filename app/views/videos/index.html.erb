@@ -33,8 +33,7 @@
                         </div>
                         <div class="col-xs-6 col-md-4">
                     <%= link_to like_video_path(video), method: :put, class: "upvoteindex" do %>
-                    <p><%= image_tag("up-arrow.svg", size: "25", class: "upvoteimage") %></p>
-                    <p class="upvotenumber"><%= video.get_upvotes.size %></p>
+                    <p class="upvotenumber"><%= image_tag("like.svg", size: "25", class: "upvoteimage") %><%= video.get_upvotes.size %></p>
                     <% end %><!--funçãodoupvote--></p>
                     </div><!--upvoteindex-->
                     </div><!--row-->           

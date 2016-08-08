@@ -54,6 +54,17 @@
 .navbar-default .navbar-nav > li > a {
     color: white !important;
 }
+a.submitvideo {
+    display: block;
+    background: url('plus.svg');
+    background-position: left center;
+    background-size: 15px;
+    background-repeat:no-repeat;
+    padding: 15px 10px 15px 20px !important; 
+
+
+}
+
 
 
 nav-tabs > li {
