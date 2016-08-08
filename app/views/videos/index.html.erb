@@ -32,9 +32,16 @@
                         <p class="channelpanelindex">por: <%= video.channel %></p>
                         </div>
                         <div class="col-xs-6 col-md-4">
+
+                    <% if user_signed_in? %>
                     <%= link_to like_video_path(video), method: :put, class: "upvoteindex" do %>
                     <p class="upvotenumber"><%= image_tag("like.svg", size: "25", class: "upvoteimage") %><%= video.get_upvotes.size %></p>
+                    <% end %>
+                    <% else %> 
+                    <%= link_to new_user_registration_path, class: "upvoteindex", data:{ confirm: "Para você votar nos vídeos, é necessário fazer login!" } do %>
+                    <p class="upvotenumber"><%= image_tag("like.svg", size: "25", class: "upvoteimage") %><%= video.get_upvotes.size %></p>                      
                     <% end %><!--funçãodoupvote--></p>
+                    <% end %>
                     </div><!--upvoteindex-->
                     </div><!--row-->           
                 </div><!--caption-->
