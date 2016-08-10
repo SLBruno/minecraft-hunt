@@ -260,10 +260,18 @@ img.upvoteimage {
     margin: 0 auto;
 }
 
+img.downvoteimage {
+    display:block;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+}
+
 p.upvotenumber {
     text-align: center;
-    margin: none;
-    margin-top: -5px;
+    margin: auto 0;
+    font-weight: 300;
 
 }
 
@@ -272,13 +280,13 @@ box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .channelpanelindex {
-    min-height: 60px;
+    min-height: 20px;
     
 }
 
 p.channelpanelindex {
     font-weight: 300;
-    font-size: 1.2em;
+    font-size: 1em;
     vertical-align: middle;
 
 }
@@ -376,7 +384,7 @@ p.channelpanelindex {
   border-radius: 3px;
   padding-bottom: 5px;
   height: 100%;
-  min-height: 280px;
+  min-height: 200px;
 }
 
 

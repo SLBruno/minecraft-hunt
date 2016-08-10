@@ -19,7 +19,7 @@
 
         <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showinfo">
             <div class="panel panel-index showupvotepanel">
-                <h3 style="color:white; font-weight:300; margin-top:-8px;"> Quantas pessoas gostaram deste video?</h3>
+                <h3 style="color:white; font-weight:300; margin-top:-8px;"> O que você achou deste video?</h3>
                 <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
                 <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
                 <button class="btn btn-warning votebtn"> VOTAR </button>
@@ -28,14 +28,14 @@
             <br>
             <div class="panel showstats">
             <h2> INFORMAÇÕES </h2>
-                <h4>Views
+                <h4><b>Views</b>
                 <p><%= @video.views %></p></h4>
                 <br>
-                <h4>Likes
+                <h4><b>Likes</b>
                 <p><%= @video.likes %></p></h4>
                 <br>
-                <h4>Dislikes </h4>
-                <p><%= @video.dislikes %></p></p>
+                <h4><b>Dislikes</b>
+                <p><%= @video.dislikes %></p></h4>
             </div><!--panel-index-votar-agora-->
         </div><!--segunda-coluna-->
     </div><!--row-->
