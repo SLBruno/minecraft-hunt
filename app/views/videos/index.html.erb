@@ -11,7 +11,7 @@
 
 <div id="content" class="col-md-12 center-block">
   <div class="container"> 
-    <ul class="nav nav-tabs col-md-offset-2">
+    <ul class="nav nav-tabs col-md-offset-3">
         <li role="presentation"> <%= link_to 'Últimos Vídeos', videos_path %></li>
         <li role="presentation"> <%= link_to 'Melhores da Semana', videos_path(:created_at => 30.days.ago) %></li>
         <li role="presentation"> <%= link_to 'Melhores do Mês', videos_path(:created_at => 7.days.ago) %></li>
@@ -21,7 +21,7 @@
       <div class="row">
         <% group.each do |video| %>
           <% if video %>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="col-xs-12 col-sm-6 col-md-3">
               <div class="panel panel-default panelindex">
                   <%= link_to image_tag("https://img.youtube.com/vi/#{video.uid}/mqdefault.jpg", alt: video.title,
     class: 'imgindex'),"https://www.youtube.com/watch?v=#{video.uid}", target: '_blank' %>
@@ -29,33 +29,34 @@
                     <h4 class="titleindex"><%= link_to video.title.first(60), video %>...</h4>
                     <div class="row">
                         <div class="col-xs-6 col-md-7">
-                        <p class="channelpanelindex">por: <%= video.channel %></p>
+                        <p class="channelpanelindex"><%= video.channel.first(18) %></p>
                         </div>  
-                    <% if user_signed_in? %>
-                      <div class="col-xs-2 col-md-1 col-md-offset-2">
-                      <%= link_to like_video_path(video), method: :put, class: "upvoteindex" do %>
-                      <p class="upvotenumber"><%= image_tag("heart-grey.svg", size: "20", class: "upvoteimage") %></p>
+                      <% if user_signed_in? %>
+                            <div class="col-xs-3 col-md-offset-2 col-md-1">
+                            <%= link_to like_video_path(video), method: :put, class: "upvoteindex" do %>
+                            <p class="upvotenumber"><%= image_tag("happy-grey-emoticon.svg", size: "20", class: "upvoteimage") %></p>
+                          <% end %><!--funçãodoupvote1-->
+                            </div>
+                            <div class="col-xs-3 col-md-1">
+                            <p class="upvotenumber"><%= video.get_upvotes.size %></p>
+                    
+                      <% else %> 
+                          <div class="col-xs-3 col-md-offset-2 col-md-1">
+                          <%= link_to new_user_registration_path, class: "upvoteindex", data:{ confirm: "Para você votar nos vídeos, é necessário fazer login!" } do %>
+                          <p class="upvotenumber"><%= image_tag("happy-grey-emoticon.svg", size: "20", class: "upvoteimage") %></p>
+                          <% end %>
+                          </div>
+                          <div class="col-xs-3 col-md-1">
+                          <p class="upvotenumber"><%= video.get_upvotes.size %></p>                 
+                          <% end %><!--funçãodoupvote2--></p>
+                        <% end %><!--if-->
                     </div>
-                    <% end %>
-                      <div class="col-xs-3 col-md-1">
-                      <p class="upvotenumber"><%= video.get_upvotes.size %></p>
-                    <% else %> 
-                    <div class="col-xs-2 col-md-1 col-md-offset-2">
-                      <%= link_to new_user_registration_path, class: "upvoteindex", data:{ confirm: "Para você votar nos vídeos, é necessário fazer login!" } do %>
-                      <p class="upvotenumber"><%= image_tag("heart-grey.svg", size: "20", class: "upvoteimage") %>
-                    </div>
-                    <% end %>
-                      <div class="col-xs-3 col-md-1">
-                      <p class="upvotenumber"><%= video.get_upvotes.size %></p>                  
-                    <% end %><!--funçãodoupvote--></p>
-                    <% end %>
-                    </div><!--upvoteindex-->
-                    </div><!--row-->           
+                  </div><!--row2-->           
                 </div><!--caption-->
               </div><!--panelindex-->
             </div><!--coluna-do-panel-->
           <% end %>
-        <% end %>
-      </div><!--row-->
+    </div><!--row1-->
+  <% end %>
   </div><!--container--> 
-</div><!--content-->
+  </div><!--content-->

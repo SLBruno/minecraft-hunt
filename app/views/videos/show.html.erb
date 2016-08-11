@@ -7,7 +7,7 @@
                 "https://www.youtube.com/watch?v=#{@video.uid}", target: '_blank' %></p>
                 <div class="panelshow">        
             <p><strong><h3><%= link_to @video.title, "https://www.youtube.com/watch?v=#{@video.uid}", style: "color:black;" %></h3></strong></p>
-            <p style="font-weight:300; font-size:1.2em;"><b>por: </b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
+            <p style="font-weight:300; font-size:1.2em;"><b></b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
             <hr>
             <div class="showdescription"><%= @video.description.first(700) %></div>
             <div class="align-right">
@@ -19,11 +19,22 @@
 
         <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showinfo">
             <div class="panel panel-index showupvotepanel">
-                <h3 style="color:white; font-weight:300; margin-top:-8px;"> O que você achou deste video?</h3>
-                <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
-                <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
-                <button class="btn btn-warning votebtn"> VOTAR </button>
-                <% end %>
+                <h3 style="color:white; font-weight:300; margin-top:-8px;"> O QUE VOCÊ ACHOU?</h3>
+                <br>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
+                            <p><%= image_tag("happy-emoticon.svg", size: "50", class: "upvoteimage")%></p>
+                            <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
+                            <% end %>
+                        </div>
+                        <div class="col-xs-6">
+                            <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
+                            <p><%= image_tag("sad-emoticon.svg", size: "50", class: "upvoteimage")%></p>
+                            <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
+                            <% end %>
+                        </div>
+                    </div>
             </div><!--panel-index-votar-agora-->
             <br>
             <div class="panel showstats">
