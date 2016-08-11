@@ -36,6 +36,10 @@
 					<% end -%>
       </div><!--container-->
     </div><!--navbar-inner-->
+
+    <% if Rails.env == "production" %>
+    <%= render :partial => 'shared/googleanalytics' %>
+    <% end %> 
   </header>
   	<div class="container" id="alertas"><% flash.each do |name, msg| %> <%= content_tag(:div, msg, class: "alert alert-info") %> 
   	<% end %></div>
