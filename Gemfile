@@ -13,7 +13,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -28,22 +27,16 @@ gem 'spring',        group: :development
 
 #gem for Heroku
 gem 'rails_12factor', group: :production
-
 gem 'devise', '~> 3.5', '>= 3.5.2'
-
 gem 'acts_as_votable', '~> 0.10.0'
-
 gem 'yt', '~> 0.25.11'
-
 gem 'bootstrap-sass'
-
 gem 'rails-observers'
-
 gem 'simple_form'
-
 gem 'bootstrap-material-design'
-
 gem 'bootstrap_form', '~> 2.4'
+
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 
 # Use ActiveModel has_secure_password
