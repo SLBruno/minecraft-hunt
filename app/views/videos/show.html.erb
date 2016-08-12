@@ -22,6 +22,7 @@
                 <h3 style="color:white; font-weight:300; margin-top:-8px;"> O QUE VOCÊ ACHOU?</h3>
                 <br>
                     <div class="row">
+                        <% if user_signed_in? %>
                         <div class="col-xs-6">
                             <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
                             <p><%= image_tag("happy-emoticon.svg", size: "50", class: "upvoteimage")%></p>
@@ -34,6 +35,20 @@
                             <p class="upvotenumbershow"><%= @video.get_downvotes.size %></p>
                             <% end %>
                         </div>
+                        <% else %> 
+                        <div class="col-xs-6">
+                            <%= link_to new_user_registration_path, class: "upvoteindex", data:{ confirm: "Para você votar nos vídeos, é necessário fazer login!" } do %> 
+                            <p><%= image_tag("happy-emoticon.svg", size: "50", class: "upvoteimage")%></p>
+                            <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
+                            <% end %>
+                        </div>
+                        <div class="col-xs-6">
+                            <%= link_to new_user_registration_path, class: "upvoteindex", data:{ confirm: "Para você votar nos vídeos, é necessário fazer login!" } do %> 
+                            <p><%= image_tag("sad-emoticon.svg", size: "50", class: "upvoteimage")%></p>
+                            <p class="upvotenumbershow"><%= @video.get_downvotes.size %></p>
+                            <% end %>
+                        </div>
+                        <% end %> 
                     </div>
             </div><!--panel-index-votar-agora-->
             <br>
@@ -62,24 +77,26 @@
                 </div><!--container-->
             </div><!--panel-->
         </div><!--col-->
-        <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showaddcomment">
-            <div class="panel box panel-default paneladdcomment">
+        <% if user_signed_in? %>
+            <div class="col-sm-4 col-xs-12 col-sm-offset-1" id="showaddcomment">
+                <div class="panel box panel-default paneladdcomment">
                     <h3>DEIXE SEU COMENTÁRIO!!</h3> <%= simple_form_for [@video, Comment.new]  do |f| %>
                     <div class="field">
-                    <%= f.text_area :body, class:"clearfix" %>
+                        <%= f.text_area :body, class:"clearfix" %>
                     </div>   
-                    <%= f.submit "Enviar Comentário", class: "btn btn-primary btn-lg" %>
+                        <%= f.submit "Enviar Comentário", class: "btn btn-primary btn-lg" %>
                     <% end %>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                 </div><!--container-->
             </div><!--panel-->
+        <% end %> 
         </div><!--col-->
     </div><!--row-->
         <br>
-        <% if current_user.id == @video.user_id %>
+        <% if current_user == @video.user %>
         <%= link_to 'Destruir', @video, method: :delete, data: { confirm: 'Você tem certeza?' } %> |
         <% end %> 
         <%= link_to 'Voltar', videos_path %>

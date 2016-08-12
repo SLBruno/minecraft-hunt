@@ -12,12 +12,23 @@ class VideosController < ApplicationController
     end
   end  
 
+  def upvote
+      @video = Video.find(params[:id])
+      @video.upvote_by (current_user)
+      redirect_to :back
+  end
+    
+  def downvote
+      @video = Video.find(params[:id])
+      @video.downvote_by (current_user)
+      redirect_to :back
+    end
         
   def new
     @video = Video.new
   end
 
-    def destroy
+  def destroy
     @video.destroy
     redirect_to root_path, notice: "O seu vídeo foi apagado!"
   end
@@ -49,18 +60,6 @@ class VideosController < ApplicationController
   def show
   end
     
-    def upvote
-        @video = Video.find(params[:id])
-        @video.upvote_by (current_user)
-        redirect_to :back
-    end
-    
-    def downvote
-        @video = Video.find(params[:id])
-        @video.downvote_by (current_user)
-        redirect_to :back
-    end
-
 end 
 
 private
