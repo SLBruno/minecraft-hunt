@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
     before_action :set_video, only: [:show, :edit, :update, :destroy]
+    skip_before_filter :require_login, :only => [:edit,:update, :destroy] 
   
     
 # act_as_votable - https://github.com/ryanto/acts_as_votable    
@@ -14,6 +15,11 @@ class VideosController < ApplicationController
         
   def new
     @video = Video.new
+  end
+
+    def destroy
+    @video.destroy
+    redirect_to root_path, notice: "O seu vídeo foi apagado!"
   end
     
   def create
@@ -43,8 +49,6 @@ class VideosController < ApplicationController
   def show
   end
     
-end
-    
     def upvote
         @video = Video.find(params[:id])
         @video.upvote_by (current_user)
@@ -57,6 +61,8 @@ end
         redirect_to :back
     end
 
+end 
+
 private
 
     def video_params
@@ -66,5 +72,6 @@ private
     def set_video
         @video = Video.find(params[:id])
     end
-        
+       
 end
+

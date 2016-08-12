@@ -9,9 +9,9 @@
             <p><strong><h3><%= link_to @video.title, "https://www.youtube.com/watch?v=#{@video.uid}", style: "color:black;" %></h3></strong></p>
             <p style="font-weight:300; font-size:1.2em;"><b></b><%= link_to @video.channel, "https://www.youtube.com/channel/#{@video.channelid}" %></p>
             <hr>
-            <div class="showdescription"><%= @video.description.first(700) %></div>
+            <div class="showdescription"><%= @video.description.first(800) %></div>
             <div class="align-right">
-            <button class="btn btn-warning votebtn" style="text-align:right"> ASSISTIR </button>
+            <%= link_to "ASSISTIR", "https://www.youtube.com/watch?v=#{@video.uid}", class:"btn btn-warning votebtn", style:"text-align:right; margin-bottom: 10px; margin-right:10px; "%> 
             </div><!--align-right-->
         </div><!--panelshow-->
     </div><!--panel-index-->
@@ -29,9 +29,9 @@
                             <% end %>
                         </div>
                         <div class="col-xs-6">
-                            <%= link_to like_video_path(@video), method: :put, class: "upvoteshow" do %> 
+                            <%= link_to dislike_video_path(@video), method: :put, class: "upvoteshow" do %> 
                             <p><%= image_tag("sad-emoticon.svg", size: "50", class: "upvoteimage")%></p>
-                            <p class="upvotenumbershow"><%= @video.get_upvotes.size %></p>
+                            <p class="upvotenumbershow"><%= @video.get_downvotes.size %></p>
                             <% end %>
                         </div>
                     </div>
@@ -79,7 +79,9 @@
         </div><!--col-->
     </div><!--row-->
         <br>
-        <%= link_to 'Editar', edit_video_path(@video) %> |
+        <% if current_user.id == @video.user_id %>
+        <%= link_to 'Destruir', @video, method: :delete, data: { confirm: 'Você tem certeza?' } %> |
+        <% end %> 
         <%= link_to 'Voltar', videos_path %>
     </div><!--comments2-->
         </div>

@@ -42,7 +42,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    respond_with(@comment)
+    redirect_to root_path, notice: "seu comentário foi destruido com sucesso!"
   end
 
   private

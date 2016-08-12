@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   get 'users/show'
 
     devise_for :users
-    resources :users,  only: [:show]
     resources :comments
+    resources :users,  only: [:show]
     resources :links
-    resources :videos, only: [:index, :new, :create, :edit, :show] do
+    resources :videos, only: [:index, :new, :create, :show, :destroy] do
         resources :comments
         member do
             put "like", to: "videos#upvote"
